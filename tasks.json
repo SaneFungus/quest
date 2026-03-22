@@ -1,0 +1,274 @@
+[
+  {
+    "id": "A1",
+    "layer": "A",
+    "title": "Inwentarz dźwięków",
+    "body": "Zatrzymaj się w dowolnym miejscu na zewnątrz. Stój przez tyle czasu, ile potrzebujesz, żeby policzyć pięć dźwięków, których wcześniej nie słyszałeś. Zapamiętaj ostatni z nich.",
+    "reflect": "Co zmieniło się w sposobie, w jaki słyszysz, kiedy musisz znaleźć dźwięk nowy?",
+    "note_instructor": "Ćwiczenie z selektywnej uwagi akustycznej. \"Wcześniej nie słyszałeś\" jest celowo nieweryfikowalne — to napięcie jest produktywne."
+  },
+  {
+    "id": "A2",
+    "layer": "A",
+    "title": "Jeden obiekt, trzy razy",
+    "body": "Znajdź obiekt leżący na ziemi lub porzucony. Patrz na niego przez minutę. Odejdź. Wróć i patrz przez kolejną minutę. Zapisz, co zmieniło się w obiekcie między pierwszym a drugim spojrzeniem.",
+    "reflect": "Czy zmienił się obiekt czy ty?",
+    "note_instructor": "Inspirowane \"Paradigm\" Franka i \"Tracks\" Knizaka. Pytanie o to, czy zmienia się obiekt czy obserwator, celowo nierozstrzygnięte."
+  },
+  {
+    "id": "A3",
+    "layer": "A",
+    "title": "Granica",
+    "body": "Znajdź miejsce, w którym coś się kończy i coś innego zaczyna. Stań dokładnie na tej granicy. Zrób coś, co wykona tylko połowa twojego ciała.",
+    "reflect": "Co czujesz, stojąc dokładnie między dwoma miejscami?",
+    "note_instructor": "Echo \"Shadow Piece II\" Shiomi. Działa na ciele i przestrzeni jednocześnie."
+  },
+  {
+    "id": "A4",
+    "layer": "A",
+    "title": "Dźwięk graniczny",
+    "body": "Przez piętnaście minut słuchaj najcichszego dźwięku, jaki jesteś w stanie usłyszeć. Nie nazywaj go. Po powrocie opowiedz o nim nie używając rzeczowników.",
+    "reflect": "Co się dzieje z opisem, kiedy znika rzeczownik?",
+    "note_instructor": "Inspirowane \"Boundary Music\" Shiomi. Ograniczenie językowe zmusza do opisu procesu, nie obiektu."
+  },
+  {
+    "id": "A5",
+    "layer": "A",
+    "title": "Ławka palimpsest",
+    "body": "Przyjrzyj się uważnie ławce w parku — wszystkim śladom poprzednich użytkowników: napisom, naklejkom, śladom zużycia. Na tej podstawie napisz krótką opowieść o jej \"życiu\".",
+    "reflect": "Czego nie widać na pierwszy rzut oka?",
+    "note_instructor": "Bliskie \"Tracks\" Knizaka. Narracja wyłania się z obserwacji materialnej."
+  },
+  {
+    "id": "A6",
+    "layer": "A",
+    "title": "Mapa zapachów",
+    "body": "Przez godzinę chodź po swojej okolicy i zapisuj wszystkie zapachy, które napotykasz. Na końcu narysuj mapę z zaznaczonymi lokalizacjami.",
+    "reflect": "Jak mapa zapachów różni się od mapy, którą masz w głowie?",
+    "note_instructor": "Zmiana modalności percepcji. Rzadko ćwiczona, silny materiał na storytelling."
+  },
+  {
+    "id": "A7",
+    "layer": "A",
+    "title": "Orkiestra miejska",
+    "body": "Przez pięć minut dyryguj dźwiękami miasta — przejeżdżającymi samochodami, krokami przechodniów, szumem wiatru — tak jakby były twoją orkiestrą.",
+    "reflect": "Kiedy zacząłeś słyszeć wzorzec zamiast chaosu?",
+    "note_instructor": "Ćwiczenie z pattern recognition i poczucia sprawczości. Warstwa komiczna działa na korzyść."
+  },
+  {
+    "id": "A8",
+    "layer": "A",
+    "title": "Schody i choreografia",
+    "body": "Znajdź trzy różne rodzaje schodów w mieście. Na każdych wykonaj krótką choreografię inspirowaną ich charakterem — materiałem, rytmem, nachyleniem.",
+    "reflect": "Jak architektura zmieniła ruch?",
+    "note_instructor": "Bezpośredni dialog z Fluxusem. Responsywność na przestrzeń jako ćwiczenie improwizacyjne."
+  },
+  {
+    "id": "B1",
+    "layer": "B",
+    "title": "Oferta",
+    "body": "Wyjdź z czymś, co możesz dać. Daj to pierwszej osobie, która wyda ci się, że tego potrzebuje. Jeśli nikt nie wyda ci się potrzebujący, wróć z tym, co miałeś. Zapamiętaj moment decyzji.",
+    "reflect": "Co cię powstrzymało — albo co cię pchnęło?",
+    "note_instructor": "Echo \"Street Piece\" Knowles. \"Wyda ci się\" wymaga interpretacyjnej decyzji opartej na obserwacji."
+  },
+  {
+    "id": "B2",
+    "layer": "B",
+    "title": "Instrukcja bez instrukcji",
+    "body": "Zapytaj kogoś nieznanego o drogę do miejsca, które sam dobrze znasz. Idź w kierunku, który ci wskazał. Zatrzymaj się, kiedy dotrzesz do czegoś, czego wcześniej nie zauważałeś.",
+    "reflect": "Czy drogę wyznaczył inny człowiek — czy to, co znalazłeś?",
+    "note_instructor": "Paradoks: student kłamie w komunikacie, żeby otworzyć się na prawdziwe odkrycie. Warto omówić etykę po powrocie."
+  },
+  {
+    "id": "B3",
+    "layer": "B",
+    "title": "Czas kogoś innego",
+    "body": "Obserwuj jedną osobę przez trzy minuty, nie podchodząc i nie nawiązując kontaktu. Wyobraź sobie, co robiła godzinę temu i co będzie robiła za godzinę. Pozdrow ją w myślach i odejdź.",
+    "reflect": "Kiedy wyobraźnia się uruchomiła — co ją wywołało?",
+    "note_instructor": "Ćwiczenie z narracyjnej empatii. Celowo nie-interakcyjne, żeby uniknąć inwazyjności."
+  },
+  {
+    "id": "B4",
+    "layer": "B",
+    "title": "Odpowiedź",
+    "body": "Znajdź coś w przestrzeni miejskiej lub naturalnej, co wygląda jak pytanie. Odpowiedz na nie fizycznie — gestem, pozycją ciała, ruchem. Nikt nie musi tego widzieć.",
+    "reflect": "Skąd wiedziałeś, że to pytanie?",
+    "note_instructor": "Inspirowane \"Direction\" Brechta. Akt interpretacji — co \"wygląda jak pytanie\" — jest właściwym ćwiczeniem."
+  },
+  {
+    "id": "B5",
+    "layer": "B",
+    "title": "Historia miejsca",
+    "body": "Wejdź do małego sklepiku lub kawiarni i zapytaj o historię tego miejsca. Słuchaj uważnie. Nie przerywaj.",
+    "reflect": "Co cię zaskoczyło w tej historii?",
+    "note_instructor": "Prosta, skuteczna. Uczy słuchania i odkrywania niewidocznych warstw przestrzeni."
+  },
+  {
+    "id": "B6",
+    "layer": "B",
+    "title": "Wywiad z trzema osobami",
+    "body": "Przeprowadź krótki wywiad z trzema różnymi osobami na temat ich pierwszych wspomnień z tego miasta. Zapisz te trzy opowieści.",
+    "reflect": "Co łączyło te trzy osoby, choć nie wiedzą o swoim istnieniu?",
+    "note_instructor": "Zbiera gotowy materiał narracyjny. Uczy słuchania jako improwizacyjnej praktyki."
+  },
+  {
+    "id": "B7",
+    "layer": "B",
+    "title": "Podobny element stroju",
+    "body": "Znajdź kogoś, kto nosi podobny element ubrania do twojego. Rozpocznij z tą osobą rozmowę, zaczynając od tego szczegółu.",
+    "reflect": "Co wspólnego detalu zrobiło z dwóch obcych ludzi?",
+    "note_instructor": "Niski próg wejścia. Działa jako ćwiczenie szukania \"punktu wejścia\" w kontakcie."
+  },
+  {
+    "id": "B8",
+    "layer": "B",
+    "title": "Rozmowa z bezdomnym",
+    "body": "Porozmawiaj z bezdomnym. Nie dawaj pieniędzy. Nie oferuj pomocy. Rozmawiaj.",
+    "reflect": "Co w sobie musiałeś pokonać, żeby zostać w rozmowie?",
+    "note_instructor": "Lakoniczne jak score Fluxusa. Wymaga autentycznej responsywności. Warto omówić przed wyjściem."
+  },
+  {
+    "id": "C1",
+    "layer": "C",
+    "title": "Przypadkowy tytuł",
+    "body": "Przez cały czas trwania Questu zapisuj tytuły tego, co widzisz — jak gdybyś tytułował obrazy lub rozdziały. Nie opisuj, tylko tytułuj. Na końcu wybierz trzy tytuły, które razem brzmią jak opowieść.",
+    "reflect": "Czym różni się tytuł od opisu?",
+    "note_instructor": "Ćwiczenie z pattern recognition w tradycji Close'a. Tytuł jako akt interpretacji."
+  },
+  {
+    "id": "C2",
+    "layer": "C",
+    "title": "Powtórzenie",
+    "body": "Wykonaj tę samą prostą czynność w trzech różnych miejscach podczas jednego wyjścia. Zapamiętaj, jak każde miejsce zmieniło tę czynność.",
+    "reflect": "Co powtórzenie ujawniło, czego pojedyncze wykonanie by nie ujawniło?",
+    "note_instructor": "Inspirowane Shiomi. Repetycja jako metoda ujawniania różnicy — klasyczny gest Fluxusa."
+  },
+  {
+    "id": "C3",
+    "layer": "C",
+    "title": "Zdarzenie bez nazwy",
+    "body": "Czekaj, aż wydarzy się coś, czemu nie umiesz nadać nazwy. Zostań z tym przez chwilę. Nie nadawaj mu nazwy. Wróć i opisz je bez użycia czasowników.",
+    "reflect": "Co się dzieje, kiedy zatrzymujesz się przy tym, czego nie możesz nazwać?",
+    "note_instructor": "Najtrudniejsze z zadań. Może nie zadziałać — i to jest w porządku."
+  },
+  {
+    "id": "C4",
+    "layer": "C",
+    "title": "Wzorzec dnia",
+    "body": "Na koniec Questu, zanim wrócisz, zastanów się: co powtarzało się dziś więcej niż raz? Nie szukaj odpowiedzi. Pozwól jej się pojawić. Jeśli się nie pojawi — to jest twoja odpowiedź.",
+    "reflect": "Czy wzorzec był tam cały czas, czy wyłonił się dopiero kiedy zacząłeś szukać?",
+    "note_instructor": "Z tradycji Close'a. \"To jest twoja odpowiedź\" zapobiega traktowaniu braku wzorca jako porażki."
+  },
+  {
+    "id": "C5",
+    "layer": "C",
+    "title": "Miejskie haiku",
+    "body": "Znajdź trzy przypadkowe przedmioty na swojej drodze. Napisz krótki wiersz, w którym każdy z nich pojawia się dokładnie raz.",
+    "reflect": "Co się stało z przedmiotami, kiedy weszły do wiersza?",
+    "note_instructor": "Wynika z obserwacji. Dobry przykład narracji jako konstruowania, nie relacjonowania."
+  },
+  {
+    "id": "C6",
+    "layer": "C",
+    "title": "Przez cały dzień — nie odpowiadaj",
+    "body": "Przez cały dzień na każde zadane ci pytanie odpowiadaj w taki sposób, żeby nie udzielić odpowiedzi. Dosłownie na każde.",
+    "reflect": "Kiedy brak odpowiedzi sam stał się odpowiedzią?",
+    "note_instructor": "Bezpośrednio inspirowane Fluxusem i tradycją Cage'a. Zmienia percepcję języka i konwencji."
+  },
+  {
+    "id": "C7",
+    "layer": "C",
+    "title": "Odpowiedzi jak mama",
+    "body": "Przez jeden dzień na każde zadane ci pytanie odpowiadaj tak, jak odpowiedziałaby twoja mama.",
+    "reflect": "Co odkryłeś o sobie, a co o mamie?",
+    "note_instructor": "Ćwiczenie z perspektywy i tożsamości. Zaskakująco bogate narracyjnie — ujawnia wzorce."
+  },
+  {
+    "id": "M1",
+    "layer": "M",
+    "title": "Wejdź do apteki po gwoździe",
+    "body": "Wejdź do sklepu, który sprzedaje coś, o co nie zamierzasz pytać. Zapytaj spokojnie, bez ironii i bez wyjaśnień, o produkt, którego ten sklep nie ma. Zostań przez chwilę po odpowiedzi. Wyjdź.",
+    "reflect": "Co poczułeś między decyzją o wejściu a pierwszym słowem, które wypowiedziałeś?",
+    "note_instructor": "Poziom 1 sekwencji musarowej. Krótka ekspozycja, wysoka kontrola, intencja niewidoczna."
+  },
+  {
+    "id": "M2",
+    "layer": "M",
+    "title": "Dwie godziny jako ktoś inny",
+    "body": "Przez dwie godziny zachowuj się w przestrzeni publicznej tak, jakbyś był kimś, kim nie jesteś — nie przez strój czy rekwizyt, ale przez jedną cechę zachowania. Zapamiętaj momenty, w których chciałeś wrócić do siebie.",
+    "reflect": "Kiedy \"ty\" chciało wrócić? Co konkretnie wywołało ten impuls?",
+    "note_instructor": "Poziom 2. Przedłużona ekspozycja, wysoka kontrola, intencja niewidoczna."
+  },
+  {
+    "id": "M3",
+    "layer": "M",
+    "title": "Usiądź tam, gdzie się nie siada",
+    "body": "Usiądź na podłodze w miejscu, gdzie zwykle ludzie siedzą na krzesłach lub stoją. Nie tłumacz tego. Zostań przez tyle czasu, ile potrzebujesz, żeby poczuć, że już możesz wstać — nie dlatego, że minął czas, ale dlatego, że coś w tobie się rozluźniło.",
+    "reflect": "Skąd wiedziałeś, że to już ten moment?",
+    "note_instructor": "Poziom 3. Wbudowany wewnętrzny wskaźnik zakończenia."
+  },
+  {
+    "id": "M4",
+    "layer": "M",
+    "title": "Nieodpowiedni strój przez cały dzień",
+    "body": "Przez cały dzień noś coś, co sprawia, że czujesz się nieodpowiednio ubrany w każdym kontekście. Jeśli ktoś zapyta, powiedz prawdę: to ćwiczenie.",
+    "reflect": "Czy łatwiej było znosić samo ubranie czy tłumaczenie go?",
+    "note_instructor": "Poziom 4. Widoczna intencja. \"Powiedz prawdę\" dodaje nową warstwę ekspozycji."
+  },
+  {
+    "id": "M5",
+    "layer": "M",
+    "title": "Wyjście bez siatki bezpieczeństwa",
+    "body": "Wyjdź z domu bez pieniędzy, bez telefonu i bez celu na dwie godziny. Jeśli czegoś potrzebujesz, poproś o to. Jeśli ktoś cię zagadnie, odpowiedz szczerze na każde pytanie.",
+    "reflect": "Co odkryłeś o swoim poczuciu bezpieczeństwa?",
+    "note_instructor": "Poziom 5. Niska kontrola. Nie wprowadzać bez zbudowanego zaufania w grupie."
+  },
+  {
+    "id": "W1",
+    "layer": "W",
+    "title": "Najdziwniejszy turysta",
+    "body": "Na Starym Mieście podejdź do sprzedawcy pamiątek i poproś o opowieść o najdziwniejszym turyście, jakiego spotkał.",
+    "reflect": "Co ta historia mówi o tym miejscu?",
+    "note_instructor": "Konkretne, otwarte, narracyjnie bogate. Uczy słuchania nieoczekiwanego."
+  },
+  {
+    "id": "W2",
+    "layer": "W",
+    "title": "Walizka na Dworcu Centralnym",
+    "body": "Na Dworcu Centralnym znajdź osobę z walizką i zapytaj, dokąd jedzie oraz co najbardziej lubi w Warszawie.",
+    "reflect": "Co zaskoczyło cię w odpowiedzi?",
+    "note_instructor": "Duży potencjał narracyjny. Kontekst podróży ułatwia rozmowę."
+  },
+  {
+    "id": "W3",
+    "layer": "W",
+    "title": "Taniec na schodach PKiN",
+    "body": "Na schodach przed Pałacem Kultury rozpocznij powolny taniec inspirowany ruchem przechodniów. Trwaj przez co najmniej trzy minuty.",
+    "reflect": "Kiedy przestałeś być osobą, która \"robi ćwiczenie\"?",
+    "note_instructor": "Zależność od miejsca i czasu — autentyczna improwizacja."
+  },
+  {
+    "id": "W4",
+    "layer": "W",
+    "title": "Wywiad z Syrenką",
+    "body": "Znajdź rzeźbę syrenki warszawskiej i przeprowadź z nią wywiad na temat współczesnej Warszawy. Zadaj co najmniej pięć pytań. Odpowiedzi zapisz.",
+    "reflect": "Co musiałeś zrobić z wyobraźnią, żeby usłyszeć odpowiedź?",
+    "note_instructor": "Działa lepiej jako ćwiczenie personifikacji i fikcji niż jako samodzielny quest."
+  },
+  {
+    "id": "W5",
+    "layer": "W",
+    "title": "Kapliczki na Pradze",
+    "body": "Znajdź na Pradze trzy przedwojenne kapliczki podwórkowe i zapytaj mieszkańców o ich historię. Porównaj trzy opowieści.",
+    "reflect": "Co przetrwało w pamięci, a co w kamieniu?",
+    "note_instructor": "Łączy poszukiwanie z relacją. Wymaga responsywności na to, co zastane i opowiedziane."
+  },
+  {
+    "id": "W6",
+    "layer": "W",
+    "title": "Krakowskie Przedmieście — wiersz z szyldów",
+    "body": "Idąc Krakowskim Przedmieściem, napisz wiersz używając wyłącznie słów zaczerpniętych z mijanych szyldów i napisów.",
+    "reflect": "Co miasto chciało powiedzieć?",
+    "note_instructor": "Ćwiczenie z found poetry i uważności na język przestrzeni."
+  }
+]

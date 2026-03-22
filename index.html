@@ -2,648 +2,108 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#FAF9F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#19191A" media="(prefers-color-scheme: dark)">
   <title>Quest — zadania terenowe</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #ffffff;
-      --bg-secondary: #f5f5f3;
-      --bg-tertiary: #eeede9;
-      --text: #1a1a18;
-      --text-secondary: #5a5a56;
-      --text-tertiary: #8a8a84;
-      --border: rgba(0,0,0,0.12);
-      --border-mid: rgba(0,0,0,0.22);
-      --border-strong: rgba(0,0,0,0.35);
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1c1c1a;
-        --bg-secondary: #252523;
-        --bg-tertiary: #2e2e2b;
-        --text: #f0efe9;
-        --text-secondary: #a8a89e;
-        --text-tertiary: #6a6a62;
-        --border: rgba(255,255,255,0.1);
-        --border-mid: rgba(255,255,255,0.18);
-        --border-strong: rgba(255,255,255,0.28);
-      }
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    .app {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
-
-    /* ── header ── */
-    .app-header {
-      margin-bottom: 2rem;
-    }
-    .app-header h1 {
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-    .app-header p {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin-top: 4px;
-    }
-
-    /* ── nav ── */
-    .nav {
-      display: flex;
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-bottom: 2rem;
-    }
-    .nav button {
-      flex: 1;
-      padding: 10px 6px;
-      font-size: 13px;
-      font-family: var(--font);
-      background: transparent;
-      border: none;
-      border-right: 0.5px solid var(--border);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: background 0.12s, color 0.12s;
-      line-height: 1.3;
-    }
-    .nav button:last-child { border-right: none; }
-    .nav button:hover:not(.active) { background: var(--bg-secondary); }
-    .nav button.active {
-      background: var(--bg-secondary);
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ── sections ── */
-    .section { display: none; }
-    .section.active { display: block; }
-
-    /* ── badges ── */
-    .badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 9px;
-      border-radius: var(--radius-md);
-      white-space: nowrap;
-    }
-    .badge-A { background: #E6F1FB; color: #0C447C; }
-    .badge-B { background: #E1F5EE; color: #085041; }
-    .badge-C { background: #EEEDFE; color: #3C3489; }
-    .badge-M { background: #FAEEDA; color: #633806; }
-    .badge-W { background: #F1EFE8; color: #444441; }
-
-    /* ── hero (random) ── */
-    .hero {
-      background: var(--bg-secondary);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .hero-name {
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-    .hero-body {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text);
-    }
-    .hero-body.empty {
-      color: var(--text-tertiary);
-      font-size: 15px;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-
-    /* ── expand zone (reflect + note) ── */
-    .expand-zone {
-      display: none;
-      padding-top: 1rem;
-      margin-top: 1rem;
-      border-top: 0.5px solid var(--border);
-    }
-    .expand-zone.open { display: block; }
-    .zone-label {
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 5px;
-    }
-    .zone-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      font-style: italic;
-    }
-    .note-block {
-      display: none;
-      margin-top: 12px;
-      padding: 10px 14px;
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-left: 2px solid var(--border-mid);
-      border-radius: 0;
-    }
-    .note-block.open { display: block; }
-    .note-block .zone-text {
-      font-style: normal;
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-
-    /* ── buttons ── */
-    button {
-      font-family: var(--font);
-      font-size: 13px;
-      padding: 7px 16px;
-      background: transparent;
-      border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-md);
-      color: var(--text);
-      cursor: pointer;
-      transition: background 0.12s, transform 0.08s;
-    }
-    button:hover { background: var(--bg-secondary); }
-    button:active { transform: scale(0.98); }
-    .btn-primary {
-      font-size: 14px;
-      padding: 9px 22px;
-      font-weight: 500;
-    }
-
-    /* ── chips ── */
-    .chips {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 1.25rem;
-    }
-    .chip-label {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-    .chip {
-      padding: 5px 12px;
-      font-size: 12px;
-      border: 0.5px solid var(--border);
-      border-radius: 99px;
-      cursor: pointer;
-      background: transparent;
-      color: var(--text-secondary);
-      transition: all 0.12s;
-    }
-    .chip:hover { border-color: var(--border-mid); }
-    .chip.active {
-      background: var(--bg-secondary);
-      border-color: var(--border-strong);
-      color: var(--text);
-    }
-
-    /* ── cards (catalog) ── */
-    .card-grid { display: grid; gap: 10px; }
-    .card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1rem 1.25rem;
-      cursor: pointer;
-      transition: border-color 0.12s;
-    }
-    .card:hover { border-color: var(--border-mid); }
-    .card.open { border-color: var(--border-strong); }
-    .card-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .card-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.4;
-      flex: 1;
-    }
-    .card-body {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-top: 6px;
-    }
-    .card .expand-zone { border-top: 0.5px solid var(--border); }
-
-    /* ── sequence ── */
-    .lvl-nav {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .lvl-btn {
-      padding: 6px 14px;
-      font-size: 13px;
-    }
-    .lvl-btn.active {
-      background: var(--bg-secondary);
-      border-color: var(--border-strong);
-      font-weight: 500;
-    }
-    .lvl-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      padding: 10px 14px;
-      background: var(--bg-secondary);
-      border-radius: var(--radius-md);
-      margin-bottom: 1rem;
-    }
-    .axes {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-    .axis-pill {
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 99px;
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      color: var(--text-tertiary);
-    }
-    .warn-box {
-      font-size: 13px;
-      color: #633806;
-      background: #FAEEDA;
-      border-radius: var(--radius-md);
-      padding: 10px 14px;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    /* ── loading state ── */
-    .loading {
-      font-size: 14px;
-      color: var(--text-tertiary);
-      padding: 2rem 0;
-      text-align: center;
-    }
-    .error-box {
-      font-size: 13px;
-      color: #A32D2D;
-      background: #FCEBEB;
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      line-height: 1.55;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="app">
 
-  <div class="app-header">
-    <h1>Quest — zadania terenowe</h1>
-    <p>Narzędzie dla studentów improwizacji</p>
-  </div>
+  <!-- ── Header ── -->
+  <header class="app-header">
+    <h1>Quest</h1>
+    <span class="subtitle">zadania terenowe</span>
+  </header>
 
-  <div class="nav" id="nav">
-    <button class="active" onclick="showSection('rand')">Losuj</button>
-    <button onclick="showSection('cat')">Katalog</button>
-    <button onclick="showSection('seq')">Sekwencja</button>
-    <button onclick="showSection('war')">Warszawa</button>
-  </div>
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <button class="active" onclick="App.showSection('rand')">Losuj</button>
+    <button onclick="App.showSection('cat')">Katalog</button>
+    <button onclick="App.showSection('seq')">Sekwencja</button>
+    <button onclick="App.showSection('war')">Warszawa</button>
+  </nav>
 
+  <!-- ── Loading / Error ── -->
   <div id="loading" class="loading">Wczytywanie zadań…</div>
   <div id="error" class="error-box" style="display:none"></div>
 
-  <!-- RANDOM -->
-  <div id="s-rand" class="section" style="display:none">
-    <div class="hero" id="hero">
-      <div class="hero-body empty" id="hero-body">Naciśnij przycisk, żeby wylosować zadanie terenowe.</div>
-      <div class="hero-actions">
-        <button class="btn-primary" onclick="draw()">Losuj zadanie</button>
-        <button id="btn-reflect" onclick="toggleReflect()" style="display:none">Pytanie refleksyjne</button>
-        <button id="btn-note" onclick="toggleNote()" style="display:none">Adnotacja</button>
-      </div>
-      <div class="expand-zone" id="hero-expand">
-        <div class="zone-label">Pytanie refleksyjne</div>
-        <div class="zone-text" id="hero-reflect"></div>
-        <div class="note-block" id="hero-notebox">
-          <div class="zone-label">Adnotacja dla prowadzącego</div>
-          <div class="zone-text" id="hero-note"></div>
+  <!-- ═══════════════════════
+       SECTION: Losuj (Draw)
+       ═══════════════════════ -->
+  <section id="s-rand" class="section draw-section" style="display:none">
+
+    <!-- Empty state — before first draw -->
+    <div id="draw-empty" class="draw-empty">
+      <div class="draw-empty-text">Wylosuj zadanie terenowe</div>
+      <button class="btn-draw" onclick="App.draw()">Losuj</button>
+    </div>
+
+    <!-- Card state — after draw -->
+    <div id="draw-card" style="display:none">
+      <div class="hero-card" id="hero-card">
+        <div class="hero-meta">
+          <span id="hero-badge"></span>
+          <span class="hero-title" id="hero-title"></span>
+        </div>
+        <div class="hero-body" id="hero-body"></div>
+        <div class="hero-actions">
+          <button class="btn-redraw" onclick="App.draw()">Losuj inne</button>
+          <button class="btn-ghost" id="btn-reflect" onclick="App.toggleReflect()" style="display:none">Refleksja</button>
+          <button class="btn-ghost" id="btn-note" onclick="App.toggleNote()" style="display:none">Adnotacja</button>
+        </div>
+        <div class="expand-zone" id="hero-expand">
+          <div class="zone-label">Pytanie refleksyjne</div>
+          <div class="zone-text" id="hero-reflect-text"></div>
+          <div class="note-block" id="hero-notebox">
+            <div class="zone-label">Adnotacja dla prowadzącego</div>
+            <div class="zone-text" id="hero-note-text"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="chips" id="rand-chips"></div>
-  </div>
 
-  <!-- CATALOG -->
-  <div id="s-cat" class="section" style="display:none">
+      <div class="chips" id="rand-chips"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════
+       SECTION: Katalog
+       ═══════════════════════ -->
+  <section id="s-cat" class="section" style="display:none">
     <div class="chips" id="cat-chips"></div>
     <div class="card-grid" id="cat-grid"></div>
-  </div>
+  </section>
 
-  <!-- SEQUENCE -->
-  <div id="s-seq" class="section" style="display:none">
+  <!-- ═══════════════════════
+       SECTION: Sekwencja
+       ═══════════════════════ -->
+  <section id="s-seq" class="section" style="display:none">
     <div class="lvl-nav" id="lvl-nav"></div>
     <div class="lvl-desc" id="lvl-desc"></div>
     <div class="axes" id="lvl-axes"></div>
     <div class="card-grid" id="seq-grid"></div>
-  </div>
+  </section>
 
-  <!-- WARSAW -->
-  <div id="s-war" class="section" style="display:none">
-    <div style="font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:1.25rem;padding:10px 14px;background:var(--bg-secondary);border-radius:var(--radius-md)">
+  <!-- ═══════════════════════
+       SECTION: Warszawa
+       ═══════════════════════ -->
+  <section id="s-war" class="section" style="display:none">
+    <div class="war-intro">
       Zadania osadzone w konkretnej tkance Warszawy. Wymagają znajomości miejsca — nie nadają się do innych miast bez modyfikacji.
     </div>
     <div class="card-grid" id="war-grid"></div>
-  </div>
+  </section>
 
 </div>
-<script>
-  /* ── state ── */
-  let TASKS = [];
-  let randFilters = new Set(['A','B','C','M','W']);
-  let catFilters  = new Set(['A','B','C','M']);
-  let seqLevel    = 1;
-  let lastDrawn   = null;
-  let reflectOpen = false;
-  let noteOpen    = false;
 
-  /* ── layer meta ── */
-  const LAYER = {
-    A: { name: 'A — percepcja',  badgeClass: 'badge-A' },
-    B: { name: 'B — relacja',    badgeClass: 'badge-B' },
-    C: { name: 'C — narracja',   badgeClass: 'badge-C' },
-    M: { name: 'musarowe',       badgeClass: 'badge-M' },
-    W: { name: 'Warszawa',       badgeClass: 'badge-W' },
-  };
-
-  /* ── sequence levels ── */
-  const LEVELS = [
-    { id:0, label:'Poziom 0', title:'Praca wewnętrzna',    desc:'Zanim student wychodzi w teren — uwidocznienie mechanizmu autocenzury w bezpiecznej przestrzeni sali.',                             axes:['ekspozycja: zero','kontrola: pełna','intencja: prywatna'],           tasks:[] },
-    { id:1, label:'Poziom 1', title:'Krótka ekspozycja',   desc:'Krótka ekspozycja, wysoka kontrola, intencja niewidoczna. Apteka Nowardoku — chwila dyskomfortu bez tłumaczenia.',                axes:['ekspozycja: chwila','kontrola: wysoka','intencja: niewidoczna'],     tasks:['M1'] },
-    { id:2, label:'Poziom 2', title:'Przedłużona ekspozycja', desc:'Przedłużona ekspozycja, wysoka kontrola, intencja niewidoczna. Oś czasu — dyskomfort trwa.',                                  axes:['ekspozycja: godziny','kontrola: wysoka','intencja: niewidoczna'],    tasks:['M2'] },
-    { id:3, label:'Poziom 3', title:'Intencja widoczna',   desc:'Krótka ekspozycja, wysoka kontrola, intencja częściowo widoczna. Dziwność jest oczywista — ale student nie tłumaczy.',          axes:['ekspozycja: chwila','kontrola: wysoka','intencja: częściowa'],       tasks:['M3'] },
-    { id:4, label:'Poziom 4', title:'Widoczny znak',       desc:'Przedłużona ekspozycja, średnia kontrola, intencja widoczna. Znak trwa przez cały dzień i wymaga wyjaśniania.',                  axes:['ekspozycja: cały dzień','kontrola: średnia','intencja: widoczna'],   tasks:['M4'] },
-    { id:5, label:'Poziom 5', title:'Bez siatki',          desc:'Przedłużona ekspozycja, niska kontrola, zdanie się na okoliczności. Tylko po zbudowaniu zaufania w grupie.',                     axes:['ekspozycja: godziny','kontrola: niska','intencja: pełna'],           tasks:['M5'], warn:true },
-  ];
-
-  /* ── helpers ── */
-  function badgeHTML(layer) {
-    const l = LAYER[layer] || { name: layer, badgeClass: 'badge-W' };
-    return `<span class="badge ${l.badgeClass}">${l.name}</span>`;
-  }
-
-  /* ── load ── */
-  async function loadTasks() {
-    try {
-      const res = await fetch('./tasks.json');
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      TASKS = await res.json();
-      document.getElementById('loading').style.display = 'none';
-      init();
-    } catch (e) {
-      document.getElementById('loading').style.display = 'none';
-      const err = document.getElementById('error');
-      err.style.display = 'block';
-      err.textContent = `Nie można wczytać pliku tasks.json. Upewnij się, że plik istnieje w tym samym folderze co index.html i że otwierasz stronę przez serwer (nie bezpośrednio z dysku). Błąd: ${e.message}`;
-    }
-  }
-
-  /* ── init after load ── */
-  function init() {
-    buildRandChips();
-    buildCatChips();
-    renderCat();
-    renderSeq();
-    renderWar();
-    showSection('rand');
-  }
-
-  /* ── navigation ── */
-  function showSection(name) {
-    const map = { rand:'s-rand', cat:'s-cat', seq:'s-seq', war:'s-war' };
-    Object.values(map).forEach(id => {
-      document.getElementById(id).style.display = 'none';
-      document.getElementById(id).classList.remove('active');
-    });
-    document.getElementById(map[name]).style.display = 'block';
-    document.getElementById(map[name]).classList.add('active');
-    document.querySelectorAll('.nav button').forEach((btn, i) => {
-      btn.classList.toggle('active', ['rand','cat','seq','war'][i] === name);
-    });
-  }
-
-  /* ── random ── */
-  function buildRandChips() {
-    const container = document.getElementById('rand-chips');
-    const layers = ['A','B','C','M','W'];
-    container.innerHTML = '<span class="chip-label">Filtruj losowanie:</span>';
-    layers.forEach(l => {
-      const btn = document.createElement('button');
-      btn.className = 'chip active';
-      btn.textContent = LAYER[l].name;
-      btn.onclick = () => {
-        if (randFilters.has(l)) randFilters.delete(l);
-        else randFilters.add(l);
-        btn.classList.toggle('active', randFilters.has(l));
-      };
-      container.appendChild(btn);
-    });
-  }
-
-  function draw() {
-    const pool = TASKS.filter(t => randFilters.has(t.layer) && t.id !== lastDrawn?.id);
-    if (!pool.length) return;
-    const t = pool[Math.floor(Math.random() * pool.length)];
-    lastDrawn = t;
-    reflectOpen = false;
-    noteOpen = false;
-
-    const hero = document.getElementById('hero');
-    hero.querySelector('.hero-meta')?.remove();
-
-    const metaDiv = document.createElement('div');
-    metaDiv.className = 'hero-meta';
-    metaDiv.innerHTML = `${badgeHTML(t.layer)}<span class="hero-name">${t.title}</span>`;
-    hero.insertBefore(metaDiv, hero.firstChild);
-
-    const bodyEl = document.getElementById('hero-body');
-    bodyEl.textContent = t.body;
-    bodyEl.classList.remove('empty');
-
-    document.getElementById('hero-reflect').textContent = t.reflect;
-    document.getElementById('hero-note').textContent = t.note_instructor;
-    document.getElementById('hero-expand').classList.remove('open');
-    document.getElementById('hero-notebox').classList.remove('open');
-    document.getElementById('btn-reflect').style.display = 'inline-block';
-    document.getElementById('btn-reflect').textContent = 'Pytanie refleksyjne';
-    document.getElementById('btn-note').style.display = 'inline-block';
-    document.getElementById('btn-note').textContent = 'Adnotacja';
-  }
-
-  function toggleReflect() {
-    reflectOpen = !reflectOpen;
-    document.getElementById('hero-expand').classList.toggle('open', reflectOpen);
-    document.getElementById('btn-reflect').textContent = reflectOpen ? 'Ukryj refleksję' : 'Pytanie refleksyjne';
-    if (!reflectOpen) {
-      noteOpen = false;
-      document.getElementById('hero-notebox').classList.remove('open');
-      document.getElementById('btn-note').textContent = 'Adnotacja';
-    }
-  }
-
-  function toggleNote() {
-    if (!reflectOpen) toggleReflect();
-    noteOpen = !noteOpen;
-    document.getElementById('hero-notebox').classList.toggle('open', noteOpen);
-    document.getElementById('btn-note').textContent = noteOpen ? 'Ukryj adnotację' : 'Adnotacja';
-  }
-
-  /* ── catalog ── */
-  function buildCatChips() {
-    const container = document.getElementById('cat-chips');
-    const layers = ['A','B','C','M'];
-    container.innerHTML = '<span class="chip-label">Warstwa:</span>';
-    layers.forEach(l => {
-      const btn = document.createElement('button');
-      btn.className = 'chip active';
-      btn.textContent = LAYER[l].name;
-      btn.onclick = () => {
-        if (catFilters.has(l)) catFilters.delete(l);
-        else catFilters.add(l);
-        btn.classList.toggle('active', catFilters.has(l));
-        renderCat();
-      };
-      container.appendChild(btn);
-    });
-  }
-
-  function renderCat() {
-    const grid = document.getElementById('cat-grid');
-    const visible = TASKS.filter(t => catFilters.has(t.layer) && t.layer !== 'W');
-    grid.innerHTML = visible.map(t => makeCard(t, false)).join('');
-  }
-
-  /* ── card factory ── */
-  function makeCard(t, alwaysOpen) {
-    return `<div class="card${alwaysOpen ? ' open' : ''}" id="card-${t.id}" onclick="toggleCard('${t.id}')">
-      <div class="card-head">
-        <div class="card-title">${t.title}</div>
-        ${badgeHTML(t.layer)}
-      </div>
-      <div class="card-body">${t.body}</div>
-      <div class="expand-zone${alwaysOpen ? ' open' : ''}" id="ez-${t.id}">
-        <div class="zone-label" style="margin-top:0">Pytanie refleksyjne</div>
-        <div class="zone-text">${t.reflect}</div>
-        <div class="note-block open">
-          <div class="zone-label">Adnotacja dla prowadzącego</div>
-          <div class="zone-text">${t.note_instructor}</div>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  function toggleCard(id) {
-    const card = document.getElementById('card-' + id);
-    const ez   = document.getElementById('ez-' + id);
-    const isOpen = card.classList.contains('open');
-    card.classList.toggle('open', !isOpen);
-    ez.classList.toggle('open', !isOpen);
-  }
-
-  /* ── sequence ── */
-  function renderSeq() {
-    const nav = document.getElementById('lvl-nav');
-    nav.innerHTML = LEVELS.map(l =>
-      `<button class="lvl-btn${l.id === seqLevel ? ' active' : ''}" onclick="switchLevel(${l.id})">${l.label}</button>`
-    ).join('');
-
-    const lv = LEVELS.find(l => l.id === seqLevel);
-    document.getElementById('lvl-desc').textContent = `${lv.title} — ${lv.desc}`;
-    document.getElementById('lvl-axes').innerHTML = lv.axes.map(a =>
-      `<span class="axis-pill">${a}</span>`
-    ).join('');
-
-    const grid = document.getElementById('seq-grid');
-
-    if (lv.id === 0) {
-      grid.innerHTML = `<div class="card open">
-        <div class="card-head">
-          <div class="card-title">Zadanie przed wyjściem w teren</div>
-          <span class="badge badge-W">sala</span>
-        </div>
-        <div class="card-body">Pomyśl o jednej rzeczy, którą chciałeś powiedzieć komuś bliskiemu w ostatnim miesiącu, ale nie powiedziałeś. Napisz to zdanie na kartce. Nie musisz jej nikomu pokazywać.</div>
-        <div class="expand-zone open">
-          <div class="zone-label" style="margin-top:0">Pytanie refleksyjne</div>
-          <div class="zone-text">Co powstrzymało cię od powiedzenia tego?</div>
-          <div class="note-block open">
-            <div class="zone-label">Adnotacja dla prowadzącego</div>
-            <div class="zone-text">Cel: uwidocznić mechanizm autocenzury zanim student stanie w obliczu zewnętrznego świata. Wielu odkryje, że ich wewnętrzna cenzura jest surowsza niż jakakolwiek zewnętrzna reakcja, której się boją.</div>
-          </div>
-        </div>
-      </div>`;
-    } else {
-      const tasks = TASKS.filter(t => lv.tasks.includes(t.id));
-      grid.innerHTML = tasks.map(t => makeCard(t, true)).join('');
-    }
-
-    if (lv.warn) {
-      grid.innerHTML += `<div class="warn-box">Poziom 5 wymaga wcześniej zbudowanego zaufania w grupie. Student może odmówić bez tłumaczenia. Prowadzący powinien przejść przez analogiczne ćwiczenie wcześniej.</div>`;
-    }
-  }
-
-  function switchLevel(id) {
-    seqLevel = id;
-    renderSeq();
-  }
-
-  /* ── warsaw ── */
-  function renderWar() {
-    const grid = document.getElementById('war-grid');
-    grid.innerHTML = TASKS.filter(t => t.layer === 'W').map(t => makeCard(t, false)).join('');
-  }
-
-  /* ── start ── */
-  loadTasks();
-</script>
+<!-- ── Scripts — order matters ── -->
+<script src="content/sequence.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/entries.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

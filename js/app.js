@@ -13,7 +13,7 @@ var LAYER = {
   A: { name: 'A — percepcja', badgeClass: 'badge-A' },
   B: { name: 'B — relacja',   badgeClass: 'badge-B' },
   C: { name: 'C — narracja',  badgeClass: 'badge-C' },
-  M: { name: 'musarowe',      badgeClass: 'badge-M' },
+  M: { name: 'Ekspozycja',      badgeClass: 'badge-M' },
   W: { name: 'Warszawa',      badgeClass: 'badge-W' },
 };
 

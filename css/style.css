@@ -450,6 +450,13 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+.pool-count {
+  font-size: 0.75rem;
+  color: var(--text-ghost);
+  margin-left: 0.25rem;
+  white-space: nowrap;
+}
+
 /* ══════════════════
    CATALOG cards
    ══════════════════ */

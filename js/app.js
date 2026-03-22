@@ -9,7 +9,7 @@
 
 /** Layer metadata — used across all modules */
 // eslint-disable-next-line no-unused-vars
-const LAYER = {
+var LAYER = {
   A: { name: 'A — percepcja', badgeClass: 'badge-A' },
   B: { name: 'B — relacja',   badgeClass: 'badge-B' },
   C: { name: 'C — narracja',  badgeClass: 'badge-C' },
@@ -17,7 +17,7 @@ const LAYER = {
   W: { name: 'Warszawa',      badgeClass: 'badge-W' },
 };
 
-const App = (() => {
+var App = (() => {
   /* ── state ── */
   let randFilters = new Set(['A','B','C','M','W']);
   let catFilters  = new Set(['A','B','C','M']);
@@ -27,7 +27,7 @@ const App = (() => {
   let noteOpen    = false;
   let heroCardAnimating = false;
 
-  /* ── DOM refs (cached after init) ── */
+  /* ── DOM refs ── */
   const $ = id => document.getElementById(id);
 
   /* ═══════════════════════
@@ -58,6 +58,23 @@ const App = (() => {
      RANDOM / DRAW
      ═══════════════════════ */
 
+  function getPool() {
+    return Tasks.all().filter(t => randFilters.has(t.layer));
+  }
+
+  function updatePoolCount() {
+    const counter = $('rand-pool-count');
+    if (!counter) return;
+    const count = getPool().length;
+    counter.textContent = count + ' ' + pluralize(count);
+  }
+
+  function pluralize(n) {
+    if (n === 1) return 'zadanie';
+    if (n >= 2 && n <= 4) return 'zadania';
+    return 'zadań';
+  }
+
   function buildRandChips() {
     const container = $('rand-chips');
     const layers = ['A','B','C','M','W'];
@@ -66,21 +83,31 @@ const App = (() => {
       const btn = document.createElement('button');
       btn.className = 'chip active';
       btn.textContent = LAYER[l].name;
-      btn.onclick = () => {
-        if (randFilters.has(l)) randFilters.delete(l);
-        else randFilters.add(l);
-        btn.classList.toggle('active', randFilters.has(l));
-      };
+      btn.addEventListener('click', function() {
+        if (randFilters.has(l)) {
+          randFilters.delete(l);
+        } else {
+          randFilters.add(l);
+        }
+        this.classList.toggle('active', randFilters.has(l));
+        updatePoolCount();
+      });
       container.appendChild(btn);
     });
+
+    // Pool counter
+    const counter = document.createElement('span');
+    counter.id = 'rand-pool-count';
+    counter.className = 'pool-count';
+    container.appendChild(counter);
+
+    updatePoolCount();
   }
 
   function draw() {
     if (heroCardAnimating) return;
 
-    const pool = Tasks.all().filter(
-      t => randFilters.has(t.layer) && (!lastDrawn || t.id !== lastDrawn.id)
-    );
+    const pool = getPool().filter(t => !lastDrawn || t.id !== lastDrawn.id);
     if (!pool.length) return;
 
     const task = pool[Math.floor(Math.random() * pool.length)];
@@ -159,12 +186,15 @@ const App = (() => {
       const btn = document.createElement('button');
       btn.className = 'chip active';
       btn.textContent = LAYER[l].name;
-      btn.onclick = () => {
-        if (catFilters.has(l)) catFilters.delete(l);
-        else catFilters.add(l);
-        btn.classList.toggle('active', catFilters.has(l));
+      btn.addEventListener('click', function() {
+        if (catFilters.has(l)) {
+          catFilters.delete(l);
+        } else {
+          catFilters.add(l);
+        }
+        this.classList.toggle('active', catFilters.has(l));
         renderCat();
-      };
+      });
       container.appendChild(btn);
     });
   }
@@ -200,11 +230,11 @@ const App = (() => {
     ).join('');
 
     const lv = LEVELS.find(l => l.id === seqLevel);
-    $('lvl-desc').innerHTML = `<strong>${lv.title}</strong> — ${lv.desc}`;
+    $('lvl-desc').innerHTML = '<strong>' + lv.title + '</strong> — ' + lv.desc;
 
     // Axes
     $('lvl-axes').innerHTML = lv.axes.map(a =>
-      `<span class="axis-pill">${a}</span>`
+      '<span class="axis-pill">' + a + '</span>'
     ).join('');
 
     // Task cards
@@ -218,7 +248,7 @@ const App = (() => {
     }
 
     if (lv.warn) {
-      grid.innerHTML += `<div class="warn-box">Poziom 5 wymaga wcześniej zbudowanego zaufania w grupie. Student może odmówić bez tłumaczenia. Prowadzący powinien przejść przez analogiczne ćwiczenie wcześniej.</div>`;
+      grid.innerHTML += '<div class="warn-box">Poziom 5 wymaga wcześniej zbudowanego zaufania w grupie. Student może odmówić bez tłumaczenia. Prowadzący powinien przejść przez analogiczne ćwiczenie wcześniej.</div>';
     }
   }
 
@@ -260,7 +290,7 @@ const App = (() => {
       $('loading').style.display = 'none';
       const err = $('error');
       err.style.display = 'block';
-      err.textContent = `Nie można wczytać pliku tasks.json. Upewnij się, że plik istnieje i że strona jest serwowana przez HTTP (nie otwierana z dysku). Błąd: ${e.message}`;
+      err.textContent = 'Nie można wczytać pliku tasks.json. Upewnij się, że plik istnieje i że strona jest serwowana przez HTTP (nie otwierana z dysku). Błąd: ' + e.message;
     }
   }
 
@@ -269,13 +299,13 @@ const App = (() => {
      ═══════════════════════ */
 
   return {
-    init,
-    showSection,
-    draw,
-    toggleReflect,
-    toggleNote,
-    toggleCard,
-    switchLevel,
+    init: init,
+    showSection: showSection,
+    draw: draw,
+    toggleReflect: toggleReflect,
+    toggleNote: toggleNote,
+    toggleCard: toggleCard,
+    switchLevel: switchLevel,
   };
 })();
 
